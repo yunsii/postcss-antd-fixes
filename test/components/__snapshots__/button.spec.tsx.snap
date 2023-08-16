@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Link changes the class when hovered 1`] = `
+<button>
+  Anthony Fu
+</button>
+`;
