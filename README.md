@@ -1,16 +1,12 @@
-# pkg-name
+# postcss-antd-fixes
 
-[![NPM version](https://img.shields.io/npm/v/pkg-name?color=a1b858&label=)](https://www.npmjs.com/package/pkg-name)
+[![NPM version](https://img.shields.io/npm/v/postcss-antd-fixes?color=a1b858&label=)](https://www.npmjs.com/package/postcss-antd-fixes)
 
-## Usage
+PostCSS plugin tries to fix all issues about [antd](https://www.npmjs.com/package/antd) with any others global CSS reset
 
-- Search and replace all `pkg-name` to `what-you-want-package-name`
-- Update [\_theme.tsx](./docs/pages/_theme.tsx) package href, remove useless navs
-- Update or remove test cases
-- Add some keywords to [package.json](./package.json)
-- Update the author information, like name, link, etc.
+## Features
 
-Finally, you can remove the [usage section](#usage) completely.
+- support antd + [TailwindCSS preflight.css](https://github.com/tailwindlabs/tailwindcss/blob/master/src/css/preflight.css), ref: [ant-design/ant-design#38794](https://github.com/ant-design/ant-design/issues/38794)
 
 ## Build & Publish
 
@@ -25,4 +21,4 @@ Finally, you can remove the [usage section](#usage) completely.
 
 ## License
 
-[MIT](./LICENSE) License © 2022 [Yuns](https://github.com/yunsii)
+[MIT](./LICENSE) License © 2023 [Yuns](https://github.com/yunsii)

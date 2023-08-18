@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.vp-local-navCtn svg {
+  display: inline;
+  vertical-align: unset;
+}
+
+.vp-local-layout .vp-local-body .vp-local-content .ant-image .ant-image-img {
+  width: 100%;
+  max-width: unset;
+}
+
+.vp-local-layout .vp-local-header {
+  z-index: 1000 !important;
+}
+
+.markdown-body li {
+  list-style: disc;
+}

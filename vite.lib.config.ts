@@ -22,18 +22,28 @@ export default mergeConfig(baseConfig, {
   build: {
     minify: false,
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
-      formats: ['es'],
+      entry: path.resolve(__dirname, 'src/plugin.ts'),
     },
     rollupOptions: {
       // inspired from: https://github.com/vitejs/vite/discussions/1736#discussioncomment-2621441
       // preserveModulesRoot: https://rollupjs.org/guide/en/#outputpreservemodulesroot
-      output: {
-        dir: 'dist',
-        preserveModules: true,
-        preserveModulesRoot: 'src',
-        entryFileNames: '[name].mjs',
-      },
+      output: [
+        {
+          dir: 'dist',
+          preserveModules: true,
+          preserveModulesRoot: 'src',
+          entryFileNames: '[name].mjs',
+          format: 'es',
+          dynamicImportInCjs: true,
+        },
+        {
+          dir: 'dist',
+          preserveModules: true,
+          preserveModulesRoot: 'src',
+          entryFileNames: '[name].cjs',
+          format: 'cjs',
+        },
+      ],
       external: regexpsOfPackages,
     },
     target: 'esnext',

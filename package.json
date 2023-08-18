@@ -1,5 +1,5 @@
 {
-  "name": "pkg-name",
+  "name": "postcss-antd-fixes",
   "description": "",
   "version": "0.0.0",
   "author": "Yuns <yuns.xie@qq.com>",
@@ -11,19 +11,26 @@
   "files": [
     "dist"
   ],
-  "keywords": [],
+  "keywords": [
+    "postcss",
+    "postcss-plugin",
+    "antd",
+    "Ant Design",
+    "tailwind",
+    "tailwindcss"
+  ],
   "funding": [
     "https://opencollective.com/yuns",
     "https://afdian.net/@yunslove"
   ],
-  "homepage": "https://github.com/yunsii/pkg-name#readme",
+  "homepage": "https://github.com/yunsii/postcss-antd-fixes#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yunsii/pkg-name"
+    "url": "https://github.com/yunsii/postcss-antd-fixes"
   },
-  "bugs": "https://github.com/yunsii/pkg-name/issues",
+  "bugs": "https://github.com/yunsii/postcss-antd-fixes/issues",
   "scripts": {
-    "dev": "vite --config vite.docs.config.ts",
+    "dev": "vite --config vite.docs.config.ts --force",
     "build:docs": "tsc && vite build --config vite.docs.config.ts",
     "bd": "pnpm run build:docs",
     "ssg": "rimraf dist-docs && vite-pages ssr --configFile vite.docs.config.ts",
@@ -40,11 +47,8 @@
     "test:ui": "vitest --config vite.lib.config.ts --ui",
     "coverage": "vitest run --config vite.lib.config.ts --coverage"
   },
-  "peerDependencies": {
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
-  },
   "devDependencies": {
+    "@ant-design/cssinjs": "^1.16.2",
     "@antfu/eslint-config": "^0.35.3",
     "@antfu/eslint-config-react": "^0.35.3",
     "@changesets/cli": "^2.26.2",
@@ -62,10 +66,12 @@
     "@vitejs/plugin-react": "^4.0.1",
     "@vitest/coverage-v8": "^0.32.2",
     "@vitest/ui": "^0.32.2",
+    "autoprefixer": "^10.4.15",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.6.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.2.3",
+    "postcss": "^8.4.28",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -73,6 +79,7 @@
     "react-test-renderer": "^18.2.0",
     "rimraf": "^5.0.1",
     "serve": "^14.2.0",
+    "antd": "^5.8.3",
     "tslib": "^2.4.0",
     "typescript": "^5.1.6",
     "unplugin-auto-import": "^0.16.4",
@@ -92,5 +99,11 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"
+  },
+  "peerDependencies": {
+    "postcss": "^8.0.0"
+  },
+  "dependencies": {
+    "tailwindcss": "^3.3.3"
   }
 }
