@@ -4,8 +4,7 @@
   "version": "0.0.0",
   "author": "Yuns <yuns.xie@qq.com>",
   "license": "MIT",
-  "type": "module",
-  "main": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [

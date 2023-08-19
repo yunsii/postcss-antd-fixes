@@ -8,6 +8,22 @@ PostCSS plugin tries to fix all issues about [antd](https://www.npmjs.com/packag
 
 - support antd + [TailwindCSS preflight.css](https://github.com/tailwindlabs/tailwindcss/blob/master/src/css/preflight.css), ref: [ant-design/ant-design#38794](https://github.com/ant-design/ant-design/issues/38794)
 
+## Usage
+
+```js
+// postcss.config.js
+module.exports = {
+  plugins: {
+    'tailwindcss': {},
+    'autoprefixer': {},
+    'postcss-antd-fixes': {
+      // Support multiple prefixes, if you do not custom antd class name prefix, it's not necessary option.
+      prefixes: ['vp-antd', 'ant'],
+    },
+  },
+}
+```
+
 ## Build & Publish
 
 - `npm run build`
