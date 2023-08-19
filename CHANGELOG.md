@@ -1,5 +1,11 @@
 # postcss-antd-fixes
 
+## 0.0.3
+
+### Patch Changes
+
+- 🐛 fix: fix deps relations
+
 ## 0.0.2
 
 ### Patch Changes
