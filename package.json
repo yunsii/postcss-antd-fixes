@@ -1,7 +1,7 @@
 {
   "name": "postcss-antd-fixes",
   "description": "",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Yuns <yuns.xie@qq.com>",
   "license": "MIT",
   "main": "./dist/plugin.cjs",
