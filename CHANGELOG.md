@@ -1,5 +1,11 @@
 # postcss-antd-fixes
 
+## 0.1.0
+
+### Minor Changes
+
+- ✨ feat: support hashPriority
+
 ## 0.0.3
 
 ### Patch Changes
