@@ -1,11 +1,30 @@
 import { type PluginCreator } from 'postcss'
 
 import fixes from './fixes'
+import { getExcludeSelector } from './helpers'
+
+export interface PrefixItem {
+  prefixCls: string
+  hashPriority?: 'low' | 'high'
+}
 
 const plugin: PluginCreator<{
-  prefixes?: string[]
+  prefixes?: (string | PrefixItem)[]
 }> = (options) => {
   const { prefixes: antdPrefixes = ['ant'] } = options || {}
+
+  const processedPrefixes: PrefixItem[] = antdPrefixes.map((item) => {
+    if (typeof item === 'string') {
+      return {
+        prefixCls: item,
+      }
+    }
+    return item
+  })
+
+  const mixHashPriority = processedPrefixes.slice(1).find((item) => {
+    return item.hashPriority !== processedPrefixes[0].hashPriority
+  })
 
   return {
     postcssPlugin: 'postcss-antd-fixes',
@@ -18,14 +37,30 @@ const plugin: PluginCreator<{
             const fixedSelectors: { from: string; to: string }[] = []
             rule.selectors.forEach((selectorItem) => {
               if (fix.selectors.includes(selectorItem)) {
-                const excludeSelectors = `:not(${antdPrefixes
-                  .map((antdPrefixItem) => `[class^="${antdPrefixItem}"]`)
-                  .join(', ')})`
+                if (mixHashPriority) {
+                  const excludeSelectors = processedPrefixes.map((item) => {
+                    return getExcludeSelector(
+                      [item.prefixCls],
+                      item.hashPriority,
+                    )
+                  })
 
-                fixedSelectors.push({
-                  from: selectorItem,
-                  to: `${selectorItem}${excludeSelectors}`,
-                })
+                  fixedSelectors.push({
+                    from: selectorItem,
+                    to: excludeSelectors
+                      .map((item) => `${selectorItem}${item}`)
+                      .join(', '),
+                  })
+                } else {
+                  const excludeSelector = getExcludeSelector(
+                    processedPrefixes.map((item) => item.prefixCls),
+                    processedPrefixes[0].hashPriority,
+                  )
+                  fixedSelectors.push({
+                    from: selectorItem,
+                    to: `${selectorItem}${excludeSelector}`,
+                  })
+                }
               } else {
                 rawSelectors.push(selectorItem)
               }

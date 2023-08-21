@@ -149,14 +149,20 @@ const Demos = (props: DemosProps) => {
   return (
     <div className={`${dark ? 'bg-black' : 'bg-gray-200'} p-2 [&>div]:my-4`}>
       <div>
-        <Button className='text-sm text-sky-400' icon={<UserAddOutlined rev />}>
+        <button>
+          <span className={`i-bx--home ${dark ? 'bg-gray-200' : 'bg-black'}`} />
+        </button>
+        <button className={`i-bx--home ${dark ? 'bg-gray-200' : 'bg-black'}`} />
+      </div>
+      <div>
+        <Button className='text-sm text-sky-400' icon={<UserAddOutlined />}>
           Hello
         </Button>
         <Button
           disabled
           // I think it's okay to add extra condition to change style
           className='text-sm [&[disabled]]:text-sky-400'
-          icon={<UserAddOutlined rev />}
+          icon={<UserAddOutlined />}
         >
           Hello
         </Button>
@@ -166,7 +172,7 @@ const Demos = (props: DemosProps) => {
         <Switch />
       </div>
       <div>
-        <Input placeholder='hello' prefix={<UserOutlined rev />} />
+        <Input placeholder='hello' prefix={<UserOutlined />} />
       </div>
       <div>
         <Pagination defaultCurrent={1} total={50} />
