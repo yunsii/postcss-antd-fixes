@@ -160,8 +160,17 @@ const Demos = (props: DemosProps) => {
         </Button>
         <Button
           disabled
-          // I think it's okay to add extra condition to change style
+          // I think it's okay to add extra condition of html attributes to change style
           className='text-sm [&[disabled]]:text-sky-400'
+          icon={<UserAddOutlined />}
+        >
+          Hello
+        </Button>
+        <Button
+          type='primary'
+          ghost
+          // Without html attributes, use `!important` can be acceptable.
+          className='text-sm !bg-white'
           icon={<UserAddOutlined />}
         >
           Hello
@@ -205,7 +214,7 @@ const Demos = (props: DemosProps) => {
   )
 }
 
-export default function antd() {
+export default function Antd() {
   return (
     <>
       <h2 className='my-3'>Default mode</h2>
