@@ -1,3 +1,4 @@
 import { fix as buttonFix } from './button'
+import { fix as anchorFix } from './anchor'
 
-export default [buttonFix]
+export default [anchorFix, buttonFix]

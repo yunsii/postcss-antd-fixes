@@ -2,6 +2,7 @@ import {
   Button,
   Cascader,
   ConfigProvider,
+  Form,
   Image,
   Input,
   Pagination,
@@ -12,7 +13,7 @@ import {
   Tag,
   theme,
 } from 'antd'
-import React from 'react'
+import React, { useState } from 'react'
 import { UserAddOutlined, UserOutlined } from '@ant-design/icons'
 
 import type { ColumnsType } from 'antd/es/table'
@@ -146,6 +147,8 @@ interface DemosProps {
 const Demos = (props: DemosProps) => {
   const { dark } = props
 
+  const [linkColored, setLinkColored] = useState(false)
+
   return (
     <div className={`${dark ? 'bg-black' : 'bg-gray-200'} p-2 [&>div]:my-4`}>
       <div>
@@ -154,7 +157,7 @@ const Demos = (props: DemosProps) => {
         </button>
         <button className={`i-bx--home ${dark ? 'bg-gray-200' : 'bg-black'}`} />
       </div>
-      <div>
+      <div className='flex gap-2 items-center'>
         <Button className='text-sm text-sky-400' icon={<UserAddOutlined />}>
           Hello
         </Button>
@@ -176,12 +179,34 @@ const Demos = (props: DemosProps) => {
           Hello
         </Button>
         <button>hello</button>
+        <a
+          href='https://ant.design'
+          className={linkColored ? 'text-green-500' : ''}
+        >
+          Link
+        </a>
       </div>
       <div>
-        <Switch />
+        Link Colored:&nbsp;
+        <Switch
+          checked={linkColored}
+          onChange={(checked) => {
+            setLinkColored(checked)
+          }}
+        />
       </div>
       <div>
-        <Input placeholder='hello' prefix={<UserOutlined />} />
+        <Form>
+          <Form.Item>
+            <Input placeholder='hello' prefix={<UserOutlined />} />
+            <a
+              href='https://ant.design'
+              className={linkColored ? 'text-green-500' : ''}
+            >
+              Link
+            </a>
+          </Form.Item>
+        </Form>
       </div>
       <div>
         <Pagination defaultCurrent={1} total={50} />

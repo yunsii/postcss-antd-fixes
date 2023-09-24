@@ -7,6 +7,7 @@ PostCSS plugin tries to fix all issues about [antd](https://www.npmjs.com/packag
 ## Features
 
 - support antd + [TailwindCSS preflight.css](https://github.com/tailwindlabs/tailwindcss/blob/master/src/css/preflight.css), ref: [ant-design/ant-design#38794](https://github.com/ant-design/ant-design/issues/38794)
+- support anchor tags with `colorPrimary` under any antd components
 
 ## Usage
 
@@ -21,6 +22,42 @@ module.exports = {
       prefixes: ['vp-antd', 'ant'],
     },
   },
+}
+```
+
+## Transforms
+
+### Transform `button` styles
+
+```css
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button; /* 1 */
+  background-color: transparent; /* 2 */
+  background-image: none; /* 2 */
+}
+
+/* => */
+
+button:where(:not([class^='ant'])),
+[type='button']:where(:not([class^='ant'])),
+[type='reset']:where(:not([class^='ant'])),
+[type='submit']:where(:not([class^='ant'])) {
+  -webkit-appearance: button; /* 1 */
+  background-color: transparent; /* 2 */
+  background-image: none; /* 2 */
+}
+```
+
+### Add `anchor` styles
+
+```css
+:where([class^='ant']) a {
+  /* colorPrimary */
+  color: #1677ff;
+  text-decoration: none;
 }
 ```
 
