@@ -2,6 +2,7 @@ import type { Declaration } from 'postcss'
 
 import { defineFix, getIncludeSelector } from '@/helpers'
 
+/** ref: https://github.com/ant-design/ant-design/blob/f556a54dd53202fb500c083efa4b53c3725b6e0a/components/style/index.ts#L65 */
 export const fix = defineFix({
   name: 'anchor',
   selectors: ['a'],
