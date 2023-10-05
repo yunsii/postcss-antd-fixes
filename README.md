@@ -1,6 +1,6 @@
 # postcss-antd-fixes
 
-[![NPM version](https://img.shields.io/npm/v/postcss-antd-fixes?color=a1b858&label=)](https://www.npmjs.com/package/postcss-antd-fixes)
+[![NPM version](https://img.shields.io/npm/v/postcss-antd-fixes?color=a1b858&label=)](https://www.npmjs.com/package/postcss-antd-fixes) [![Download monthly](img.shields.io/npm/dm/postcss-antd-fixes.svg)](https://www.npmjs.com/package/postcss-antd-fixes)
 
 PostCSS plugin tries to fix all issues about [antd](https://www.npmjs.com/package/antd) with any others global CSS reset
 
