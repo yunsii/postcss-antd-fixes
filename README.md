@@ -6,6 +6,9 @@ PostCSS plugin tries to fix all issues about [antd](https://www.npmjs.com/packag
 
 ## Features
 
+> [!Note]
+> If your antd version >=5, you can use [`@layer`](https://ant.design/docs/react/compatible-style#tailwindcss-arrange-layer) to fix. Also you may have a quesion: [Can I use `@layer`?](https://caniuse.com/?search=%40layer)
+
 - support antd + [TailwindCSS preflight.css](https://github.com/tailwindlabs/tailwindcss/blob/master/src/css/preflight.css)
   - fix button style conflict, ref: [ant-design/ant-design#38794](https://github.com/ant-design/ant-design/issues/38794)
   - support anchor tags with `colorPrimary` under any antd components
